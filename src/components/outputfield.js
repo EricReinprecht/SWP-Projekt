@@ -19,11 +19,9 @@ function loadCoordinates(location) {
         return response.json();
       })
       .then(function (data) {
-        for(let i=0; i<1; i++){
-            console.log(data.location)
-        };
-          
-        
+        data.forEach((location) => {
+          console.log(location)
+        });
       })
       .catch(function (err) {
         console.log(err);
