@@ -16,7 +16,7 @@ class OutputField extends Component {
   loadCoordinates(locationForApi) {
     if (locationForApi) {
       fetch(
-        "http://api.openweathermap.org/geo/1.0/direct?limit=1&appid=77a92c772fa00a0ce8ac1d27c983fcdd&q=" +
+        "https://api.openweathermap.org/geo/1.0/direct?limit=1&appid=77a92c772fa00a0ce8ac1d27c983fcdd&q=" +
           locationForApi
       )
         .then(function (response) {
