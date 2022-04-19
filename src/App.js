@@ -13,24 +13,21 @@ class App extends Component {
 
   getLocation = (value) => {
     let location = {
-      id:1,
-      name:value
-    }
+      id: 1,
+      name: value,
+    };
     let locations = this.state.locations;
     locations.push(location);
 
     this.setState({
-      locations : locations
-    })
+      locations: locations,
+    });
   };
   render() {
     return (
       <div className="App">
-        <div className="locationInput">
-          <InputField locationAdded={this.getLocation} />
-        </div>
+        <InputField locationAdded={this.getLocation} />
         <OutputField locations={this.state.locations} />
-        
       </div>
     );
   }

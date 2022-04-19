@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "./outputfield.module.css";
 
 class OutputField extends Component {
-  getAllTodos() {
+  getAllInformation = () => {
     let widget = [];
 
     this.props.locations.forEach((location) => {
@@ -12,47 +12,53 @@ class OutputField extends Component {
     let locationAsJSON = JSON.stringify(widget);
     let locationAsString = locationAsJSON.slice(2, -2).toString();
     return locationAsString;
-  }
-  loadCoordinates(locationForApi) {
+  };
+  loadCoordinates = (locationForApi) => {
     if (locationForApi) {
       fetch(
-        "https://api.openweathermap.org/geo/1.0/direct?limit=1&appid=77a92c772fa00a0ce8ac1d27c983fcdd&q=" +
+        "https://api.openweathermap.org/geo/1.0/direct?limit=2&appid=77a92c772fa00a0ce8ac1d27c983fcdd&q=" +
           locationForApi
       )
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
-          data.forEach((locationForApi) => {
+          if(data[0].name.toLowerCase() === locationForApi.toLowerCase() || data.length === 1){
+            data = data[0];
+          }else{
+            data = data[1];
+          }
+          
             fetch(
               "https://api.openweathermap.org/data/2.5/weather?lat=" +
-                locationForApi.lat +
+                data.lat +
                 "&lon=" +
-                locationForApi.lon +
+                data.lon +
                 "&appid=77a92c772fa00a0ce8ac1d27c983fcdd&lang=de&units=metric"
             )
               .then(function (response) {
                 return response.json();
               })
               .then(function (data) {
+                console.log(data)
                 let html = "";
-                html += "min Temperatur: " + data.main.temp_min + "</li>";
+                html += "Temperatur: " + data.main.temp + " C°";
                 document.getElementById("outputfield").innerHTML = html;
               })
               .catch(function (err) {
                 console.log(err);
               });
-          });
+          
         })
         .catch(function (err) {
           console.log(err);
         });
-      }
-  }
+    }
+  };
 
   render() {
     return (
-      this.loadCoordinates(this.getAllTodos()),
+      this.loadCoordinates(this.getAllInformation()),
       (<div id="outputfield" className={styles.outputfield}></div>)
     );
   }

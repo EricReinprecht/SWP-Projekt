@@ -1,9 +1,37 @@
-.inputfield{
-    width: 50vw;
-    height: 30px;
-    font-size: 20px;
+.inputfield {
+  width: 40vw;
+  height: 30px;
+  font-size: 20px;
+  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  text-align: center;
 }
 
-.input{
-    padding-top: 3%;
+.input {
+  padding-top: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+.searchButton {
+  background-color: rgb(248, 245, 245);
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: rgb(145, 137, 137);
+  cursor: pointer;
+  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 10px;
+  height: 36px;
+  outline: black solid 0.5px;
+  padding: 9px 20px 9px;
+  text-align: center;
+  width: 10vw;
+}
+
+.searchButton:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }

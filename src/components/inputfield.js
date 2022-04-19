@@ -19,16 +19,23 @@ class InputField extends Component {
   getLocation = () => {
     this.props.locationAdded(this.state.inputValue);
   };
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      this.getLocation();
+    }
+  };
 
   render() {
     return (
-      <div className={styles.inputfield}>
-        <input
+      <div className={styles.input}>
+        <input className={styles.inputfield}
           type="text"
           value={this.state.inputValue}
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
+          placeholder={"Enter Location"}
         />
-        <button onClick={this.getLocation}>Search</button>
+        <button className={styles.searchButton}  onClick={this.getLocation}>SEARCH</button>
       </div>
     );
   }
