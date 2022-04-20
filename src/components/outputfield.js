@@ -1,7 +1,19 @@
 import React, { Component } from "react";
-import styles from "./outputfield.module.css";
+import OutputValue from "./outputValue";
+
 
 class OutputField extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      value:[
+        {
+          "name": "hallo"
+        }
+      ]
+    }
+  }
 
   getAllInformation = () => {
     let widget = [];
@@ -42,9 +54,9 @@ class OutputField extends Component {
               })
               .then(function (data) {
                 console.log(data)
-                let html = "";
-                html += "Temperatur: " + data.main.temp + " C°";
-                document.getElementById("outputfield").innerHTML = html;
+                
+                
+                
               })
               .catch(function (err) {
                 console.log(err);
@@ -57,10 +69,21 @@ class OutputField extends Component {
     }
   };
 
+  getValues(){
+    let widgets = [];
+    
+    this.state.value.forEach(value =>{
+      widgets.push(<OutputValue name={value.name}/>)
+    });
+    return widgets;
+}
+
   render() {
     return (
-      this.loadCoordinates(this.getAllInformation()),
-      (<div id="outputfield" className={styles.outputfield}></div>)
+      console.log(this.state.value),
+      <div>
+        {this.getValues()}
+      </div>
     );
   }
 }
