@@ -2,7 +2,6 @@ import { Component } from "react";
 import "./App.css";
 import InputField from "./components/inputfield";
 import OutputField from "./components/outputfield";
-import OutputValue from "./components/outputValue";
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <InputField locationAdded={this.getLocation}/>
-        <OutputField/>
+        <OutputField locations={this.state.locations}/>
       </div>
     );
   }

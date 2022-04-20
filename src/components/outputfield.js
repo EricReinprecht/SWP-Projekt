@@ -1,19 +1,17 @@
 import React, { Component } from "react";
-import OutputValue from "./outputValue";
+import styles from "./outputfield.module.css";
 
+import OutputValue from "./outputValue";
 
 class OutputField extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      value:[
-        {
-          "name": "hallo"
-        }
-      ]
-    }
+      temperatur: [],
+    };
   }
+
 
   getAllInformation = () => {
     let widget = [];
@@ -28,7 +26,10 @@ class OutputField extends Component {
   };
 
   loadCoordinates = (locationForApi) => {
-    if (locationForApi) {
+    
+    let temperatur = this.state.temperatur
+
+    if (locationForApi, temperatur) {
       fetch(
         "https://api.openweathermap.org/geo/1.0/direct?limit=2&appid=77a92c772fa00a0ce8ac1d27c983fcdd&q=" +
           locationForApi
@@ -42,6 +43,7 @@ class OutputField extends Component {
           }else{
             data = data[1];
           }
+          
             fetch(
               "https://api.openweathermap.org/data/2.5/weather?lat=" +
                 data.lat +
@@ -53,10 +55,7 @@ class OutputField extends Component {
                 return response.json();
               })
               .then(function (data) {
-                console.log(data)
-                
-                
-                
+                 temperatur.push(data.main.temp);
               })
               .catch(function (err) {
                 console.log(err);
@@ -71,16 +70,18 @@ class OutputField extends Component {
 
   getValues(){
     let widgets = [];
+
     
-    this.state.value.forEach(value =>{
-      widgets.push(<OutputValue name={value.name}/>)
+
+    this.state.temperatur.forEach(temperatur =>{
+      widgets.push(<OutputValue name={temperatur}/>)
     });
     return widgets;
 }
 
   render() {
     return (
-      console.log(this.state.value),
+      this.loadCoordinates(this.getAllInformation()),
       <div>
         {this.getValues()}
       </div>
