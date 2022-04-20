@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./outputfield.module.css";
 
 class OutputField extends Component {
+
   getAllInformation = () => {
     let widget = [];
 
@@ -13,6 +14,7 @@ class OutputField extends Component {
     let locationAsString = locationAsJSON.slice(2, -2).toString();
     return locationAsString;
   };
+
   loadCoordinates = (locationForApi) => {
     if (locationForApi) {
       fetch(
@@ -28,7 +30,6 @@ class OutputField extends Component {
           }else{
             data = data[1];
           }
-          
             fetch(
               "https://api.openweathermap.org/data/2.5/weather?lat=" +
                 data.lat +

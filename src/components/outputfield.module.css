@@ -1,0 +1,15 @@
+.outputfield{
+    width: 20%;
+    height: 10%;
+
+    position: relative;
+    top: 30%;
+    left: 37%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 130%;
+}
