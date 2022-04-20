@@ -1,15 +1,43 @@
-.outputfield{
-    width: 20%;
-    height: 10%;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 
-    position: relative;
-    top: 30%;
-    left: 37%;
+.locationName {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 230%;
+  font-weight: 500;
+  text-align: center;
+}
+.temperature {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 250%;
+  padding-left: 1vw;
+}
+.celsius {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 115%;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10vh;
+  padding-right: 20vw;
+  align-items: center;
+}
+.contentLeft {
+  display: flex;
+  padding-left: 20vw;
+  align-items: center;
+}
+.contentRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.list {
+  font-family: "Noto Sans", sans-serif;
+  padding-left: 15px;
+  font-size: 85%;
+}
+.description{
+  font-family: "Noto Sans", sans-serif;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 130%;
 }
