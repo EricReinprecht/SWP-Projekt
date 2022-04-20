@@ -8,7 +8,7 @@ class OutputValue extends Component {
         <div className={styles.content}>
           <div className={styles.contentLeft}>
             <div className={styles.image}>
-              <img src={this.props.icon} height={80}></img>
+              <img src={this.props.icon}alt={"to show weather as icon"} height={80}></img>
             </div>
             <div className={styles.temperature}>{this.props.temp}</div>
             <div className={styles.celsius}> C°</div>

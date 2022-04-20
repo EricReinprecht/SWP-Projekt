@@ -10,7 +10,7 @@ class OutputField extends Component {
     };
   }
 
-  getAllInformation = () => {
+  getLocation = () => {
     let widget = [];
 
     this.props.locations.forEach((location) => {
@@ -88,7 +88,10 @@ class OutputField extends Component {
   }
 
   render() {
-    return this.loadCoordinates(this.getAllInformation()), this.getValues();
+    return (
+      this.loadCoordinates(this.getLocation()),
+      this.getValues()
+    )
   }
 }
 
